@@ -10,6 +10,9 @@ import { UserLoginService } from '../fetch-api-data.service';
 // displays notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+// imports router
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
@@ -46,3 +49,5 @@ export class UserLoginFormComponent implements OnInit {
   }
 
 }
+
+// this.router.navigate(['movies']);

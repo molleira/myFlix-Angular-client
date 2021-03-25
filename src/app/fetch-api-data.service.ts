@@ -1,3 +1,4 @@
+// src/app/fetch-api-database.service.ts
 import { Injectable } from '@angular/core';
 
 // create angular service for consuming REST API using angular HttpClient
@@ -77,7 +78,7 @@ export class GetAllMovies {
     return this.http
       .get(apiUrl + 'movies', {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
