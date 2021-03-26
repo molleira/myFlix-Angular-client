@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 
-import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
 
@@ -28,14 +27,6 @@ export class UserProfileComponent implements OnInit {
 
   openUserProfileDialog(): void {
     this.dialog.open(UserProfileComponent, {
-    });
-  }
-
-  openDetailsDialog(Description: string, Image: string): void {
-    this.dialog.open(MovieDetailsComponent, {
-      data: { Description, Image },
-      width: '400px',
-      height: '400px',
     });
   }
 
