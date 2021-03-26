@@ -4,8 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { GetAllMovies } from '../fetch-api-data.service';
 
-import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
-
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -28,14 +26,6 @@ export class MovieCardComponent {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
-    });
-  }
-
-  openGenreDialog(Name: string, Description: string): void {
-    this.dialog.open(MovieGenreComponent, {
-      data: { Name, Description },
-      width: '400px',
-      height: '400px',
     });
   }
 

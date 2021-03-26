@@ -29,14 +29,4 @@ export class WelcomePageComponent implements OnInit {
     });
   }
 
-  openMoviesDialog(): void {
-    this.dialog.open(MovieCardComponent, {
-    });
-  }
-
-  openUserProfileDialog(): void {
-    this.dialog.open(UserProfileComponent, {
-    });
-  }
-
 }
