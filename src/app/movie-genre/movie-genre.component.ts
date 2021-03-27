@@ -1,5 +1,7 @@
 // src/app/movie-genre/movie-genre.component.ts
 import { Component, Inject } from '@angular/core';
+
+//angular material
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({

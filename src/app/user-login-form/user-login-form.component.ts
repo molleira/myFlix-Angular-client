@@ -25,7 +25,9 @@ export class UserLoginFormComponent implements OnInit {
   constructor(
     public fetchApiData: UserLoginService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar,
+    public router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -40,6 +42,7 @@ export class UserLoginFormComponent implements OnInit {
       this.snackBar.open('Logged in successfully', 'OK', {
         duration: 2000,
       });
+      this.router.navigate(['movies']);
     }, (response) => {
       console.log(response);
       this.snackBar.open(response, 'OK', {
@@ -49,5 +52,3 @@ export class UserLoginFormComponent implements OnInit {
   }
 
 }
-
-// this.router.navigate(['movies']);
