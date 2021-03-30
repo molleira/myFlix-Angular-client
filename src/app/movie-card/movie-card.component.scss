@@ -22,7 +22,7 @@ img {
   position: absolute;
   top: 18px;
   right: 32px;
-  color: #cc0000;
+  color: #f44434;
   transition: 0.3s;
 }
 
@@ -34,7 +34,7 @@ img {
 .mat-card > .select-favorite > mat-icon {
   position: absolute;
   top: 18px;
-  right: 32px;  color: #cc0000;
+  right: 32px;  color: #f44434;
   transition: 0.3s;
 }
 
@@ -43,21 +43,21 @@ img {
   transform: scaleX(1.2) scaleY(1.2);
 }
 
-.mat-card-header {
-  // justify-content: center;
-}
+// .mat-card-header {
+//   justify-content: center;
+// }
 
 .mat-card-title {
   font-size: 24px;
-  color: #3765c2;
+  color: #4454b4;
   padding: 5px;
 }
 
-.mat-card-image {
-  // width: 90%;
-  // margin: auto;
-  // box-shadow: 0px 0px 5px black;
-}
+// .mat-card-image {
+//   width: 90%;
+//   margin: auto;
+//   box-shadow: 0px 0px 5px black;
+// }
 
 .buttons {
   text-align: center;
@@ -66,7 +66,7 @@ img {
 
 .buttons > button {
   color: white;
-  background-color: #3765c2;
+  background-color: #4454b4;
   font-size: 14px;
   // margin-right: 10px;
   // margin-bottom: 10px;

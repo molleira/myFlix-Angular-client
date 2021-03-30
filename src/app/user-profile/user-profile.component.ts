@@ -99,6 +99,24 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
+  deleteUser(): void {
+    this.fetchApiDataDeleteUser.deleteUser().subscribe(
+      (result) => {
+        console.log(result);
+        this.snackbar.open('Your profile has been deleted.', 'OK', {
+          duration: 3000,
+          verticalPosition: 'top',
+        });
+      },
+      (result) => {
+        this.snackbar.open(result, 'OK', {
+          duration: 3000,
+          verticalPosition: 'top',
+        });
+      }
+    );
+  }
+
   getFavoriteMovies(): void {
     const user = localStorage.getItem('user');
     if (user) {

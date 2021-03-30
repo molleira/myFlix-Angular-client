@@ -5,7 +5,7 @@
   position: fixed;
   z-index: 100;
   top: 0;
-  background-color: red;
+  background-color: #f44434;
   height: 50px;
   width: 100vw;
 }
@@ -22,7 +22,7 @@
 .title:hover,
 .nav_buttons > button:hover {
   cursor: pointer;
-  color: blue;
+  color: #4454b4;
 }
 
 .nav_buttons {

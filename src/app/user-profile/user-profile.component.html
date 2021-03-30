@@ -38,8 +38,12 @@
 
     </mat-card-content>
     <mat-card-actions class="update-button-container">
-      <button mat-raised-button (click)="editUser()" class="update-button">
+      <button mat-raised-button (click)="editUser()" class="update-button" color="warn">
         Submit
+      </button>
+
+      <button mat-raised-button (click)="deleteUser()" class="update-button" color="warn">
+        Delete account
       </button>
 
     </mat-card-actions>
@@ -59,22 +63,21 @@
 
       <img src="{{ movie.ImagePath }}" alt="{{ movie.Title }}" class="card-image" />
 
-      <div class="buttons">
-
-        <button mat-raised-button (click)="openDetailsDialog(movie.Description, movie.Image, movie.Title)">
-          Description
-        </button>
-
-        <button mat-raised-button (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)">
+      <mat-card-actions>
+        <button mat-button (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)" color="primary">
           Genre
         </button>
 
-        <button mat-raised-button
-          (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio, movie.Director.BirthYear)">
+        <button mat-button (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio, movie.Director.Birth)"
+          color="primary">
           Director
         </button>
 
-      </div>
+        <button mat-button (click)="openDetailsDialog(movie.Description, movie.ImagePath, movie.Title)" color="primary">
+          Synopsis
+        </button>
+
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>
