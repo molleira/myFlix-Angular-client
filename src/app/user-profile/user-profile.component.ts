@@ -99,7 +99,7 @@ export class UserProfileComponent implements OnInit {
         });
       }
     );
-    localStorage.clear();
+    // localStorage.clear();
   }
 
   deleteUser(): void {

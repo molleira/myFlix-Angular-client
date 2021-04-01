@@ -300,11 +300,11 @@ export class EditUser {
   constructor(private http: HttpClient) { }
 
   // making the API call for the edit user endpoint
-  editUser(username: any): Observable<any> {
+  editUser(userData: any): Observable<any> {
     const token = localStorage.getItem('token');
-    console.log(token);
+    const username = localStorage.getItem('user')
     return this.http
-      .put(apiUrl + `users/${username}`, {
+      .put(apiUrl + `users/${username}`, userData, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -416,8 +416,9 @@ export class DeleteUser {
   // making the API call for the delete user endpoint
   deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user')
     return this.http
-      .delete(apiUrl + 'users/:Username', {
+      .delete(apiUrl + `users/${username}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
