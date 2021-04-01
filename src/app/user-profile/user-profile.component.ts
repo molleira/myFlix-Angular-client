@@ -1,5 +1,6 @@
 // src/app/user-profile/user-profile.component.ts
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 // angular material
 import { MatDialog } from '@angular/material/dialog';
@@ -39,7 +40,8 @@ export class UserProfileComponent implements OnInit {
     public fetchApiDataDeleteUser: DeleteUser,
     public fetchApiDataDeleteFavorite: DeleteFavoriteMovie,
     public dialog: MatDialog,
-    public snackbar: MatSnackBar
+    public snackbar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -97,6 +99,7 @@ export class UserProfileComponent implements OnInit {
         });
       }
     );
+    localStorage.clear();
   }
 
   deleteUser(): void {
@@ -107,6 +110,7 @@ export class UserProfileComponent implements OnInit {
           duration: 3000,
           verticalPosition: 'top',
         });
+        this.router.navigate(['welcome']);
       },
       (result) => {
         this.snackbar.open(result, 'OK', {
