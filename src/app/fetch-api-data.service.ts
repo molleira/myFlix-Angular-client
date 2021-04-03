@@ -422,6 +422,7 @@ export class DeleteUser {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
+        responseType: 'text'
       })
       .pipe(catchError(this.handleError));
   }

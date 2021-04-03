@@ -1,5 +1,6 @@
 // src/app/nav-bar/nav-bar.component.ts
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,12 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public snackbar: MatSnackBar,
+  ) { }
 
   ngOnInit(): void {
   }
 
   logoutUser(): void {
+    this.snackbar.open('Your are logged out.', 'OK', {
+      duration: 3000,
+      verticalPosition: 'top',
+    }),
+      this.snackbar.open('Your are logged out.', 'OK', {
+        duration: 3000,
+        verticalPosition: 'top',
+      });
     localStorage.clear();
   }
 

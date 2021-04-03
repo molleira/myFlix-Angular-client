@@ -99,7 +99,8 @@ export class UserProfileComponent implements OnInit {
         });
       }
     );
-    // localStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['welcome']);
   }
 
   deleteUser(): void {
@@ -110,7 +111,6 @@ export class UserProfileComponent implements OnInit {
           duration: 3000,
           verticalPosition: 'top',
         });
-        this.router.navigate(['welcome']);
       },
       (result) => {
         this.snackbar.open(result, 'OK', {
@@ -119,6 +119,8 @@ export class UserProfileComponent implements OnInit {
         });
       }
     );
+    localStorage.clear();
+    this.router.navigate(['welcome']);
   }
 
   getFavoriteMovies(): void {
