@@ -16,6 +16,9 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Function clears username and token from local storage to log out user
+   */
   logoutUser(): void {
     this.snackbar.open('Your are logged out.', 'OK', {
       duration: 3000,

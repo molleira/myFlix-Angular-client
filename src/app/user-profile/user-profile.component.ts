@@ -45,9 +45,18 @@ export class UserProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    /**
+     * Call function on page load to retrieve a list of user's favorite movies
+     */
     this.getFavoriteMovies();
   }
 
+  /**
+   * Function that retrieves list of all movies from database
+   * then checks for favorite movie ids against this list.
+   * If a match, movie is pushed to favoriteMovies array.
+   * @returns favoriteMovies
+   */
   getMovies(): void {
     this.fetchApiDataAllMovies.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -59,6 +68,12 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to open dialog showing movie details
+   * @param Description type: string - Movie description
+   * @param Image type: string - Path to movie image
+   * @param Title type: string - Movie title
+   */
   openDetailsDialog(Description: string, Image: string, Title: string): void {
     this.dialog.open(MovieDetailsComponent, {
       data: { Description, Image, Title },
@@ -67,6 +82,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to open dialog showing genre details
+   * @param Name type: string - Name of genre
+   * @param Description type: string - Description of genre
+   */
   openGenreDialog(Name: string, Description: string): void {
     this.dialog.open(MovieGenreComponent, {
       data: { Name, Description },
@@ -75,6 +95,12 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to open dialog showing director details
+   * @param Name type: string - Name of director
+   * @param Bio type: string - Director bio
+   * @param BirthYear type: string - Year director was born
+   */
   openDirectorDialog(Name: string, Bio: string, BirthYear: string): void {
     this.dialog.open(MovieDirectorComponent, {
       data: { Name, Bio, BirthYear },
@@ -83,6 +109,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+  * Function that allows the user to update their profile information
+  */
   editUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe(
       (result) => {
@@ -103,6 +132,9 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['welcome']);
   }
 
+  /**
+  * Function that allows the user to delete their profile
+  */
   deleteUser(): void {
     this.fetchApiDataDeleteUser.deleteUser().subscribe(
       (result) => {
@@ -123,6 +155,10 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['welcome']);
   }
 
+  /**
+   * Function to get user's favorite movies
+   * @returns favoriteMovieIDs - IDs of user's favorite movies
+   */
   getFavoriteMovies(): void {
     const user = localStorage.getItem('user');
     if (user) {
@@ -144,6 +180,11 @@ export class UserProfileComponent implements OnInit {
     }, 100);
   }
 
+  /**
+   * Function that checks whether a user no longer has favorite movies after
+   * a favorite is deleted. If no cards remain with the "active" class, text
+   * is displayed to let the user know they do not have any favorites.
+   */
   checkNoFavorites() {
     let container = document.querySelector('.container') as HTMLDivElement;
     let noFavorites = document.querySelector('.no-favorites') as HTMLDivElement;
@@ -151,6 +192,15 @@ export class UserProfileComponent implements OnInit {
       noFavorites.innerHTML = "You don't have any favorite movies!";
   }
 
+  /**
+   * Function that deletes a movie from user's list of favorites.
+   * The class "active" is removed from the movie that has been deleted,
+   * and the class "delete" is added so the card is not displayed.
+   * The checkNoFavorites function is called.
+   * @param id type: string - ID of movie to be deleted from favorites
+   * @param Title type: string - Title of movie to be deleted from favorites
+   * @param i type: number - index of movie
+   */
   deleteFavoriteMovie(id: string, Title: string, i: number): void {
     this.fetchApiDataDeleteFavorite
       .deleteFavoriteMovie(id)
